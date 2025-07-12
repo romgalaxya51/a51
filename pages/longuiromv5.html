@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LongUI ROM v5 - Galaxy A51</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Detail dan informasi lengkap tentang LongUI ROM v5 untuk Samsung Galaxy A51 4G berbasis Android 15 dan One UI 7." />
+  <meta name="keywords" content="LongUI ROM v5, Samsung A51, Android 15, One UI 7, Custom ROM" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="preload" as="image" href="../assets/background.webp" type="image/webp" />
+  <link rel="preload" as="image" href="../assets/background2.webp" type="image/webp" />
+  <link rel="preload" as="image" href="../assets/logo.webp" type="image/webp" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <!-- Background Blur -->
+  <div id="bg-blur"></div>
+
+  <!-- Header -->
+  <header style="margin-bottom: 2rem;">
+    <div class="container header-flex">
+      <div class="logo-title">
+        <a href="../index.html" class="site-link">
+          <img src="../assets/logo.webp" alt="Logo Samsung A51" class="logo" loading="eager" />
+          <span class="site-title">ROM Galaxy A51</span>
+        </a>
+      </div>
+      <nav>
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#features">Features</a>
+        <a href="../index.html#download">Download</a>
+        <a href="../index.html#about">About</a>
+        <button id="toggle-theme" class="theme-toggle" aria-label="Toggle Theme"></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Konten ROM -->
+  <section class="about container">
+    <div class="rom-info">
+      <h1 style="text-align: center;">LongUI ROM v5</h1>
+      <hr class="rom-separator" />
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+        <tr><td><strong>Release date</strong></td><td></td></tr>
+        <tr><td><strong>Status</strong></td><td>RELEASE</td></tr>
+        <tr><td><strong>ROM version</strong></td><td>5.0</td></tr>
+        <tr><td><strong>Android</strong></td><td>15</td></tr>
+        <tr><td><strong>One UI</strong></td><td>7</td></tr>
+        <tr><td><strong>Port base</strong></td><td>S22</td></tr>
+        <tr><td><strong>Zip Size</strong></td><td>3.82 GB</td></tr>
+        <tr><td><strong>Downloaded</strong></td><td><span id="download-count">Loading...</span></td></tr>
+      </table>
+
+      <div style="text-right: center; margin-top: 2rem;">
+        <a href="https://your-mediafire-link.com/download.zip" class="download-link orange" target="_blank">Download Here</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; Copyright 2025
+    </div>
+  </footer>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <script>
+    // Firebase config dari proyek longuirom-v5-download
+    const firebaseConfig = {
+      apiKey: "AIzaSyCVoA6XB-q7aB2TGpt4K-Ac4is_GBN5p-w",
+      authDomain: "longuirom-v5-download.firebaseapp.com",
+      databaseURL: "https://longuirom-v5-download-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "longuirom-v5-download",
+      storageBucket: "longuirom-v5-download.appspot.com",
+      messagingSenderId: "798891585606",
+      appId: "1:798891585606:web:8091ce4a512ef83f501a47"
+    };
+
+    // Inisialisasi Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const countRef = db.ref("downloads/count");
+
+    // Ambil nilai awal dan tampilkan
+    countRef.on("value", snapshot => {
+      const val = snapshot.val() ?? 0;
+      document.getElementById("download-count").textContent = val;
+    });
+
+    // Tambahkan 1 saat tombol diklik
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".download-link").addEventListener("click", () => {
+        countRef.once("value").then(snapshot => {
+          const current = snapshot.val() ?? 0;
+          countRef.set(current + 1);
+        });
+      });
+    });
+  </script>
+
+  <!-- Theme Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('toggle-theme');
+      const iconMoon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>`;
+      const iconSun = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6.76 4.84l-1.8-1.79-1.42 1.41 1.79 1.8 1.43-1.42zm10.48 14.32l1.79 1.8 1.42-1.42-1.8-1.79-1.41 1.41zM12 4V1h-1v3h1zm0 19v-3h-1v3h1zm8-10h3v-1h-3v1zm-19 0h3v-1H1v1zm15.24-7.76l1.8-1.79-1.42-1.42-1.79 1.8 1.41 1.41zM4.22 19.78l1.79-1.8-1.42-1.41-1.79 1.79 1.42 1.42zM12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>`;
+
+      const isDarkMode = localStorage.getItem('darkMode') === 'true';
+      document.body.classList.toggle('dark-mode', isDarkMode);
+      toggleBtn.innerHTML = isDarkMode ? iconSun : iconMoon;
+
+      toggleBtn.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', isDark);
+        toggleBtn.innerHTML = isDark ? iconSun : iconMoon;
+      });
+    });
+  </script>
+
+</body>
+</html>

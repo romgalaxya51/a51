@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROM Galaxy A51</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Download ROM custom terbaik untuk Samsung Galaxy A51 4G berbasis Android 15 dan One UI 7." />
+  <meta name="keywords" content="ROM Samsung A51, Custom ROM, Android 15, One UI 7, AOSP, XROM, LongUI" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Preload Background (penting untuk mencegah delay) -->
+  <link rel="preload" as="image" href="assets/background.webp" type="image/webp" />
+  <link rel="preload" as="image" href="assets/background2.webp" type="image/webp" />
+
+  <!-- Preload Logo -->
+  <link rel="preload" as="image" href="assets/logo.webp" type="image/webp" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- ScrollReveal (CDN) -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+
+
+  <!-- Background Blur -->
+  <div id="bg-blur"></div>
+
+    <!-- Header -->
+  <header>
+    <div class="container header-flex">
+      <div class="logo-title">
+        <a href="index.html" class="site-link">
+          <img src="assets/logo.webp" alt="Logo Samsung A51" class="logo" loading="eager" />
+          <span class="site-title">ROM Galaxy A51</span>
+        </a>
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+        <a href="#about">About</a>
+      <button id="toggle-theme" class="theme-toggle" aria-label="Toggle Theme">
+        </nav>
+        <!-- Icon diisi via JS -->
+      </button>
+    </div>
+  </header>
+
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <h1>Hello, Welcome</h1>
+      <p>This site provides Custom ROM for Samsung Galaxy A51 4G</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features container">
+    <h2>Keunggulan</h2>
+    <div class="feature">
+      <img src="assets/icon1.jpg" alt="Fitur Ringan" />
+      <h3>Android Version Upgrade</h3>
+    </div>
+    <div class="feature">
+      <img src="assets/icon2.jpg" alt="Fitur Estetik" />
+      <h3>Performance Improvements</h3>
+    </div>
+    <div class="feature">
+      <img src="assets/icon3.jpg" alt="Fitur Stabil" />
+      <h3>More Modern Appearance</h3>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section id="download" class="download container">
+    <h2>Download ROM</h2>
+    <ul>
+      
+      <!-- LONGUI ROM V5 -->
+      <li>
+        <div class="rom-info">
+          <div>
+            <a href="pages/longuiromv5.html" class="rom-title-link"><strong>LongUI ROM v5</strong></a>
+          </div>
+          <div class="info-download-row">
+            <span>One UI 7</span>
+            <a href="pages/longuiromv5.html" class="download-link coming-soon">Release Soon</a>
+          </div>
+          <div>Android 15</div>
+          <hr class="rom-separator" />
+          <div class="release-date"></div>
+        </div>
+      </li>
+
+      <!-- XROM V15 -->
+      <li>
+        <div class="rom-info">
+          <div>
+            <a href="pages/xromv15.html" class="rom-title-link"><strong>XROM v15</strong></a>
+          </div>
+          <div class="info-download-row">
+            <span>One UI 7</span>
+              <a href="pages/xromv15.html" class="download-link">Download</a>
+          </div>
+          <div>Android 15</div>
+          <hr class="rom-separator" />
+          <div class="release-date">June 16, 2025</div>
+        </div>
+      </li>
+
+      <!-- XROM V0.1 -->
+      <li>
+        <div class="rom-info">
+          <div>
+            <a href="pages/xromv01.html" class="rom-title-link"><strong>XROM Beta 1</strong></a>
+          </div>
+          <div class="info-download-row">
+            <span>One UI 7</span>
+            <a href="pages/xrom-beta1.html" class="download-link">Download</a>
+          </div>
+          <div>Android 15</div>
+          <hr class="rom-separator" />
+          <div class="release-date">April 22, 2025</div>
+        </div>
+      </li>
+
+      <!-- AOSP15 -->
+      <li>
+        <div class="rom-info">
+          <div>
+            <a href="pages/aosp15.html" class="rom-title-link"><strong>AOSP15</strong></a>
+          </div>
+          <div class="info-download-row">
+            <span>Pixel OS</span>
+            <a href="pages/aosp15.html" class="download-link">Download</a>
+          </div>
+          <div>Android 15</div>
+          <hr class="rom-separator" />
+          <div class="release-date">March 16, 2025</div>
+        </div>
+      </li>
+      
+    </ul>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about container">
+    <div class="rom-info">
+      <h2>Information</h2>
+      <p>
+        This ROM is ported from newer high-end and mid-range devices to bring the latest features to the Samsung Galaxy A51 4G.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; Copyright 2025
+    </div>
+  </footer>
+
+
+  <!-- Theme Toggle & ScrollReveal -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('toggle-theme');
+      const blurTarget = document.getElementById('bg-blur');
+      const blurSlider = document.getElementById('blur-slider');
+      const blurValue = document.getElementById('blur-value');
+
+      const iconMoon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>`;
+      const iconSun = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6.76 4.84l-1.8-1.79-1.42 1.41 1.79 1.8 1.43-1.42zm10.48 14.32l1.79 1.8 1.42-1.42-1.8-1.79-1.41 1.41zM12 4V1h-1v3h1zm0 19v-3h-1v3h1zm8-10h3v-1h-3v1zm-19 0h3v-1H1v1zm15.24-7.76l1.8-1.79-1.42-1.42-1.79 1.8 1.41 1.41zM4.22 19.78l1.79-1.8-1.42-1.41-1.79 1.79 1.42 1.42zM12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>`;
+
+      function updateIcon(isDark) {
+        toggleBtn.innerHTML = isDark ? iconSun : iconMoon;
+      }
+
+      const isDarkMode = localStorage.getItem('darkMode') === 'true';
+      document.body.classList.toggle('dark-mode', isDarkMode);
+      updateIcon(isDarkMode);
+
+      toggleBtn.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', isDark);
+        updateIcon(isDark);
+      });
+
+      // ScrollReveal animations
+      ScrollReveal().reveal('.hero', { delay: 100, distance: '40px', origin: 'bottom', duration: 800, easing: 'ease-in-out' });
+      ScrollReveal().reveal('.feature', { interval: 100, distance: '20px', origin: 'bottom', duration: 800, easing: 'ease-in-out', scale: 0.95 });
+      ScrollReveal().reveal('.download li', { interval: 100, distance: '20px', origin: 'left', duration: 700 });
+      ScrollReveal().reveal('#about', { distance: '40px', origin: 'bottom', duration: 700, delay: 100 });
+
+      // Blur control
+      blurSlider.addEventListener('input', () => {
+        const val = blurSlider.value;
+        blurTarget.style.filter = `blur(${val}px)`;
+        blurValue.textContent = val;
+      });
+    });
+  </script>
+</body>
+</html>

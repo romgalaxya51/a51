@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AOSP15 - Galaxy A51</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Detail dan informasi lengkap tentang LongUI ROM v5 untuk Samsung Galaxy A51 4G berbasis Android 15 dan One UI 7." />
+  <meta name="keywords" content="LongUI ROM v5, Samsung A51, Android 15, One UI 7, Custom ROM" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Preload -->
+  <link rel="preload" as="image" href="../assets/background.webp" type="image/webp" />
+  <link rel="preload" as="image" href="../assets/background2.webp" type="image/webp" />
+  <link rel="preload" as="image" href="../assets/logo.webp" type="image/webp" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <!-- Background Blur -->
+  <div id="bg-blur"></div>
+
+  <!-- Header -->
+  <header style="margin-bottom: 2rem;">
+    <div class="container header-flex">
+      <div class="logo-title">
+        <a href="../index.html" class="site-link">
+          <img src="../assets/logo.webp" alt="Logo Samsung A51" class="logo" loading="eager" />
+          <span class="site-title">ROM Galaxy A51</span>
+        </a>
+      </div>
+      <nav>
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#features">Features</a>
+        <a href="../index.html#download">Download</a>
+        <a href="../index.html#about">About</a>
+        <button id="toggle-theme" class="theme-toggle" aria-label="Toggle Theme"></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Konten ROM -->
+  <section class="about container">
+    <div class="rom-info">
+      <h1 style="text-align: center;">AOSP15</h1>
+      <hr class="rom-separator" />
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+        <tr><td><strong>Release date</strong></td><td>March 16, 2025</td></tr>
+        <tr><td><strong>Status</strong></td><td>RELEASE</td></tr>
+        <tr><td><strong>ROM version</strong></td><td>15.0</td></tr>
+        <tr><td><strong>Stock Android</strong></td><td>15</td></tr>
+        <tr><td><strong>GAPPS</strong></td><td>No Need</td></tr>
+        <tr><td><strong>Bugs</strong></td><td>-</td></tr>
+        <tr><td><strong>Zip Size</strong></td><td>1,74 GB</td></tr>
+        <tr><td><strong>Downloaded</strong></td><td><span id="download-count">Loading...</span></td></tr>
+      </table>
+
+      <div style="text-right: center; margin-top: 2rem;">
+        <a href="https://download1531.mediafire.com/cye0gp5gs08giQ9ofyKb8YxR9d2qVTL6OElsQaUvID4Km0EtdqW6DPMz3OZ7Vb2Ms1Ql1fWyLkZ4v5Op0E9ai1TUTucbuwhEOmPshTgY4lSPuzF84bm1D06RxoSYxUASvUzEnSwWnRL5KSaYx13O0tWepfepvpVewS1NZSA_A56K7g/9tgj0rsqkdh6ogt/PixelOS_a51-15.0-20250222-1803.zip" class="download-here" target="_blank">Download Here</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; Copyright 2025
+    </div>
+  </footer>
+
+  <!-- Firebase SDK (untuk HTML biasa) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDtV_vzH8wXq6Rx9Smae4VAETop_3L074o",
+      authDomain: "aosp-a51-download.firebaseapp.com",
+      databaseURL: "https://aosp-a51-download-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "aosp-a51-download",
+      storageBucket: "aosp-a51-download.firebasestorage.app",
+      messagingSenderId: "507882671724",
+      appId: "1:507882671724:web:fd1512bc79f30105d8d249",
+      measurementId: "G-EJCBHFQ8GY"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    const dbRef = firebase.database().ref('downloads/count');
+    const countElem = document.getElementById('download-count');
+    const downloadLink = document.querySelector('.download-here');
+
+    // Menampilkan angka dari Firebase secara real-time
+    dbRef.on('value', snapshot => {
+      const val = snapshot.val() || 0;
+      countElem.textContent = val;
+    });
+
+    // Tambah angka saat link diklik
+    downloadLink.addEventListener('click', () => {
+      dbRef.set(firebase.database.ServerValue.increment(1));
+    });
+  </script>
+
+  <!-- Theme Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('toggle-theme');
+      const iconMoon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>`;
+      const iconSun = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6.76 4.84l-1.8-1.79-1.42 1.41 1.79 1.8 1.43-1.42zm10.48 14.32l1.79 1.8 1.42-1.42-1.8-1.79-1.41 1.41zM12 4V1h-1v3h1zm0 19v-3h-1v3h1zm8-10h3v-1h-3v1zm-19 0h3v-1H1v1zm15.24-7.76l1.8-1.79-1.42-1.42-1.79 1.8 1.41 1.41zM4.22 19.78l1.79-1.8-1.42-1.41-1.79 1.79 1.42 1.42zM12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>`;
+
+      function updateIcon(isDark) {
+        toggleBtn.innerHTML = isDark ? iconSun : iconMoon;
+      }
+
+      const isDarkMode = localStorage.getItem('darkMode') === 'true';
+      document.body.classList.toggle('dark-mode', isDarkMode);
+      updateIcon(isDarkMode);
+
+      toggleBtn.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', isDark);
+        updateIcon(isDark);
+      });
+    });
+  </script>
+
+</body>
+</html>
